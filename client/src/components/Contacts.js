@@ -4,7 +4,6 @@ import {
 } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
-import { useAuth } from '../contexts/AuthContext';
 import axios from 'axios';
 
 const Contacts = () => {

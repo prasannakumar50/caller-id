@@ -28,7 +28,7 @@ export const AuthProvider = ({ children }) => {
     } else {
       setLoading(false);
     }
-  }, []);
+  }, [checkAuthStatus]);
 
   const checkAuthStatus = async () => {
     try {

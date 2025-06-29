@@ -3,7 +3,6 @@ import {
   Box, Paper, Typography, TextField, Button, Tabs, Tab, CircularProgress, Alert, List, ListItem, ListItemText, Chip
 } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
-import { useAuth } from '../contexts/AuthContext';
 import axios from 'axios';
 
 const Search = () => {
