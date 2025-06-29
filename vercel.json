@@ -5,6 +5,5 @@
   "builds": [
     { "src": "client/package.json", "use": "@vercel/static-build", "config": { "distDir": "client/build" } },
     { "src": "api/server.js", "use": "@vercel/node" }
-  ],
-  "ignoreCommand": "echo 'Backend is not deployed on Vercel. Use another service for server.js.'"
+  ]
 } 
