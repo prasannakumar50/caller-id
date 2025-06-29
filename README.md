@@ -62,41 +62,41 @@ cd ..
 
 ### Main UI Sections
 ### Navbar:
--Persistent at the top, with navigation links for Dashboard, Search, Contacts, Spam Report, and user profile/logout.
--Shows login/register buttons for unauthenticated users.
+ - Persistent at the top, with navigation links for Dashboard, Search, Contacts, Spam Report, and user profile/logout.
+ - Shows login/register buttons for unauthenticated users.
 ### Dashboard:
--Personalized welcome for the logged-in user.
--Quick action buttons for searching numbers, managing contacts, reporting spam, and viewing your profile.
+- Personalized welcome for the logged-in user.
+- Quick action buttons for searching numbers, managing contacts, reporting spam, and viewing your profile.
 ### Search:
--Search for people by name or phone number.
--Results show name, phone number, email (if available), spam likelihood, and registration status.
--Tabs allow switching between name and phone search.
+- Search for people by name or phone number.
+- Results show name, phone number, email (if available), spam likelihood, and registration status.
+- Tabs allow switching between name and phone search.
 ### Contacts:
--View, add, and delete contacts.
--Each contact displays name, phone, email, spam likelihood, and registration status.
+- View, add, and delete contacts.
+- Each contact displays name, phone, email, spam likelihood, and registration status.
 -Add contacts via a dialog form; delete with a single click.
 ### Spam Report:
--Report spam numbers with reason and optional description.
--View trending spam numbers, including report count, spam likelihood, and risk level.
+- Report spam numbers with reason and optional description.
+- View trending spam numbers, including report count, spam likelihood, and risk level.
 ### Profile:
--View and update your user profile.
--Change password and manage account details.
+- View and update your user profile.
+- Change password and manage account details.
 ### Authentication:
--Register and login with phone number and password.
--JWT-based authentication; protected routes for logged-in users.
+- Register and login with phone number and password.
+- JWT-based authentication; protected routes for logged-in users.
 ### Tech Stack
--React  with functional components and hooks
--Material-UI (MUI) for a modern, accessible UI
--Axios for API requests
--React Router for client-side routing
--Context API for authentication state
+- React  with functional components and hooks
+- Material-UI (MUI) for a modern, accessible UI
+- Axios for API requests
+- React Router for client-side routing
+- Context API for authentication state
 ### User Flow
--Register or Login to access the app.
--Use the Dashboard for quick navigation.
--Search for people or numbers to check spam status or find contacts.
--Add contacts to your personal list.
--Report spam numbers and help the community.
--View and update your profile at any time.
+- Register or Login to access the app.
+- Use the Dashboard for quick navigation.
+- Search for people or numbers to check spam status or find contacts.
+- Add contacts to your personal list.
+- Report spam numbers and help the community.
+- View and update your profile at any time.
 
 ---
 
