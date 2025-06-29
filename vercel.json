@@ -4,8 +4,14 @@
     { "source": "/(.*)", "destination": "/index.html" }
   ],
   "builds": [
-    { "src": "client/package.json", "use": "@vercel/static-build" },
-    { "src": "api/server.js", "use": "@vercel/node" }
-  ],
-  "outputDirectory": "client/build"
+    {
+      "src": "client/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "client/build" }
+    },
+    {
+      "src": "api/server.js",
+      "use": "@vercel/node"
+    }
+  ]
 } 
