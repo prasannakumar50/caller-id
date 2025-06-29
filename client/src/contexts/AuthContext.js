@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 
 const AuthContext = createContext();
@@ -19,18 +19,8 @@ export const AuthProvider = ({ children }) => {
   // Set up axios defaults
   axios.defaults.baseURL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
 
-  // Check if user is authenticated on app load
-  useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-      checkAuthStatus();
-    } else {
-      setLoading(false);
-    }
-  }, [checkAuthStatus]);
-
-  const checkAuthStatus = async () => {
+  // Define checkAuthStatus with useCallback so it's stable
+  const checkAuthStatus = useCallback(async () => {
     try {
       const response = await axios.get('/api/auth/me');
       setUser(response.data.data.user);
@@ -41,7 +31,18 @@ export const AuthProvider = ({ children }) => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
+
+  // Check if user is authenticated on app load
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+      checkAuthStatus();
+    } else {
+      setLoading(false);
+    }
+  }, [checkAuthStatus]);
 
   const login = async (phoneNumber, password) => {
     try {
