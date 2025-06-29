@@ -105,15 +105,7 @@ cd ..
 
 ---
 
-## 🧑‍💻 Contributing
 
-1. Fork the repo
-2. Create your feature branch (`git checkout -b feature/feature-name`)
-3. Commit your changes (`git commit -am 'Add new feature'`)
-4. Push to the branch (`git push origin feature/feature-name`)
-5. Open a pull request
-
----
 
 
 
