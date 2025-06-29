@@ -1,70 +1,152 @@
-# Getting Started with Create React App
+# 📞 CodeSoar Caller ID & Spam Detection
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A full-stack application for caller identification, contact management, and spam detection.  
+Built with **React** (frontend) and **Node.js/Express** (backend), using **Sequelize** ORM and SQLite/PostgreSQL.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- User registration and authentication (JWT)
+- Add, update, and delete contacts
+- Search for people by name or phone number
+- Spam number reporting and statistics
+- Modern React UI with Material-UI
+- RESTful API with secure endpoints
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🗂️ Project Structure
 
-### `npm test`
+```
+codesoar-callerid/
+│
+├── client/                # React frontend
+│   └── src/
+│       └── components/    # React components
+│       └── contexts/      # React context (Auth, etc.)
+│
+├── models/                # Sequelize models
+├── routes/                # Express API routes
+├── middleware/            # Express middleware
+├── server.js              # Express app entry point
+├── database.sqlite        # SQLite database (for local/dev)
+├── package.json           # Backend dependencies and scripts
+├── client/package.json    # Frontend dependencies and scripts
+└── README.md              # Project documentation
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 🛠️ Getting Started
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. **Clone the repository**
+```bash
+git clone https://github.com/prasannakumar50/caller-id.git
+cd caller-id
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 2. **Install dependencies**
+```bash
+npm install
+cd client && npm install
+cd ..
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 3. **Environment Variables**
 
-### `npm run eject`
+- Copy `.env.example` to `.env` and fill in your secrets (JWT, DB, etc).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 4. **Database Setup**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- For SQLite (default): No setup needed.
+- For PostgreSQL: Update your `.env` and run:
+  ```bash
+  npm run db:migrate
+  npm run db:seed
+  ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 5. **Run Locally**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- **Backend:**  
+  ```bash
+  npm run server
+  ```
+- **Frontend:**  
+  ```bash
+  cd client
+  npm start
+  ```
 
-## Learn More
+- Or run both with:
+  ```bash
+  npm run dev
+  ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🌐 Deployment (Vercel)
 
-### Code Splitting
+### **Frontend Only (Recommended for Vercel)**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. **Delete `vercel.json`** from the root (already done).
+2. In the Vercel dashboard:
+   - **Root Directory:** `client`
+   - **Build Command:** `npm run build`
+   - **Output Directory:** `build`
+3. Redeploy.
 
-### Analyzing the Bundle Size
+### **Backend**
+- Deploy separately (e.g., Render, Railway, or as a Vercel API project).
+- Update frontend API URLs to point to the backend deployment.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 📚 API Endpoints
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### **Auth**
+- `POST /api/auth/register` — Register a new user
+- `POST /api/auth/login` — Login user
+- `GET /api/auth/me` — Get current user profile
 
-### Advanced Configuration
+### **Contacts**
+- `GET /api/contacts` — List all contacts
+- `POST /api/contacts` — Add a new contact
+- `GET /api/contacts/:id` — Get a specific contact
+- `PUT /api/contacts/:id` — Update a contact
+- `DELETE /api/contacts/:id` — Delete a contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### **Search**
+- `GET /api/search?q=query&type=name|phone` — Search by name or phone
+- `GET /api/search/details/:phoneNumber` — Get detailed info about a phone number
 
-### Deployment
+### **Spam**
+- `POST /api/spam/report` — Report a spam number
+- `GET /api/spam/stats/:phoneNumber` — Get spam statistics
+- `GET /api/spam/check/:phoneNumber` — Check if a number is spam
+- `GET /api/spam/trending` — Get trending spam numbers
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## 🧑‍💻 Contributing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Fork the repo
+2. Create your feature branch (`git checkout -b feature/feature-name`)
+3. Commit your changes (`git commit -am 'Add new feature'`)
+4. Push to the branch (`git push origin feature/feature-name`)
+5. Open a pull request
+
+---
+
+## 📄 License
+
+MIT
+
+---
+
+## 🙋‍♂️ Questions?
+
+Open an issue or contact [CodeSoar](mailto:your-email@example.com).
+
+
+
