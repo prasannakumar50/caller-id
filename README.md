@@ -14,29 +14,6 @@ Built with **React** (frontend) and **Node.js/Express** (backend), using **Seque
 - Modern React UI with Material-UI
 - RESTful API with secure endpoints
 
----
-
-## 🗂️ Project Structure
-
-```
-codesoar-callerid/
-│
-├── client/                # React frontend
-│   └── src/
-│       └── components/    # React components
-│       └── contexts/      # React context (Auth, etc.)
-│
-├── models/                # Sequelize models
-├── routes/                # Express API routes
-├── middleware/            # Express middleware
-├── server.js              # Express app entry point
-├── database.sqlite        # SQLite database (for local/dev)
-├── package.json           # Backend dependencies and scripts
-├── client/package.json    # Frontend dependencies and scripts
-└── README.md              # Project documentation
-```
-
----
 
 ## 🛠️ Getting Started
 
@@ -138,15 +115,6 @@ cd ..
 
 ---
 
-## 📄 License
-
-MIT
-
----
-
-## 🙋‍♂️ Questions?
-
-Open an issue or contact [CodeSoar](mailto:your-email@example.com).
 
 
 
